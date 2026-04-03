@@ -1,0 +1,31 @@
+{
+  "name": "trmnl-tizen",
+  "scripts": {
+    "build": "NODE_ENV=production bun build src/app.tsx --outdir tizen --entry-naming 'bundle.[ext]' --format iife --target browser --define 'process.env.NODE_ENV=\"production\"' && bunx esbuild tizen/bundle.js --target=es2017 --allow-overwrite --outfile=tizen/bundle.js",
+    "dev": "bun run scripts/dev.ts",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "test:e2e": "bunx playwright test",
+    "test:e2e:ui": "bunx playwright test --ui",
+    "dev:e2e": "API_KEY= PORT=3001 bun run scripts/dev.ts",
+    "package": "tizen package -t wgt -s trmnl -o ./tizen/dist -- tizen",
+    "install": "tizen install -s $TV_IP:26101 -n ./tizen/dist/TRMNL.wgt",
+    "tv": "tizen run -s $TV_IP:26101 -p QIuRt5bqs7.viewer",
+    "deploy":  "bun run build && bun run package && bun run install && bun run tv"
+  },
+  "dependencies": {
+    "@types/bun": "^1.3.11",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "^20.9.0",
+    "@playwright/test": "^1.59.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "happy-dom": "^20.9.0"
+  }
+}

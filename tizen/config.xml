@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/viewer" version="1.0.0" viewmodes="maximized">
+   <name>TRMNL</name>
+   <icon src="icon.png"></icon>
+   <content src="index.html"></content>
+   <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"></tizen:setting>
+   <tizen:application id="QIuRt5bqs7.viewer" package="QIuRt5bqs7" required_version="5.5"></tizen:application>
+   <tizen:metadata key="http://tizen.org/metadata/app_ui_type/base_screen_resolution" value="extensive"></tizen:metadata>
+   <tizen:profile name="tv-samsung"></tizen:profile>
+   <tizen:privilege name="http://tizen.org/privilege/internet"/>
+   <access origin="*" subdomains="true"></access>
+</widget>

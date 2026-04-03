@@ -1,0 +1,64 @@
+# This is used if you use vscode to build the package instead of the CLI
+# See the README for what this requires.  It is kept in sync with the CLI on
+# a best effort basis.
+
+# Project type [web_app, test_runner]
+project_type: web_app
+
+# Default profile, Tizen API version
+profile: tv-samsung
+#api_version: "10.0"
+api_version: "6.0"
+
+# Build type [Debug/ Release/ Test]
+build_type: Debug
+
+# Output name for application
+output_name: trmnl-viewer
+
+# Output path for build
+output_path: ""
+
+# Enable size optimization of wgt for web workspace
+opt: false
+
+# Signing profile to be used for Tizen package signing
+# If value is empty: "", active signing profile will be used
+# Else If value is ".", default signing profile will be used
+signing_profile: ""
+
+# list of certs in web project (.trust-anchor)
+trust_anchor: []
+
+# list of files in web project (.html,.css etc) and resources
+files:
+  - icon.png
+  - index.html
+  - bundle.js
+  - bundle.css
+
+# list of files to exclude based on the matched patterns
+excludes:
+  - Build/*
+  - Debug/*
+  - Directory.Build.targets
+  - \.Build/.*
+  - \.buildResult/.*
+  - \.csproj
+  - \.externalToolBuilders/.*
+  - \.gn
+  - \.obj/.*
+  - \.package/.*
+  - \.project
+  - \.rds_delta
+  - \.sdk_delta.info
+  - \.settings/.*
+  - \.sign/.*
+  - \.tizen-ui-builder-tool.xml
+  - \.tproject
+  - \.wgt
+  - webUnitTest/*
+
+# project dependencies
+deps: []
+

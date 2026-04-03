@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>TRMNL</title>
+  <link rel="stylesheet" href="bundle.css">
+  <style>
+    #boot-msg { position:fixed; top:0; left:0; right:0; padding:20px; background:#111; color:#fff; font:18px monospace; z-index:9999; white-space:pre-wrap; word-break:break-all; }
+  </style>
+  <script>
+    window.__errors = [];
+    function showError(msg) {
+      window.__errors.push(msg);
+      var el = document.getElementById('boot-msg');
+      if (!el) { el = document.createElement('div'); el.id = 'boot-msg'; document.body.appendChild(el); }
+      el.textContent = window.__errors.join('\n\n');
+    }
+    window.onerror = function(msg, src, line, col, err) {
+      showError('ERROR: ' + msg + '\n' + src + ':' + line + ':' + col + (err && err.stack ? '\n' + err.stack : ''));
+    };
+    window.addEventListener('unhandledrejection', function(e) {
+      showError('UNHANDLED REJECTION: ' + (e.reason && e.reason.stack ? e.reason.stack : String(e.reason)));
+    });
+  </script>
+</head>
+<body>
+  <div id="boot-msg">TRMNL loading...</div>
+  <div id="root"></div>
+  <script src="bundle.js"></script>
+  <script>
+    var el = document.getElementById('boot-msg');
+    if (el && !window.__errors.length) el.remove();
+  </script>
+</body>
+</html>
