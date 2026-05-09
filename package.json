@@ -8,7 +8,7 @@
     "test:e2e": "bunx playwright test",
     "test:e2e:ui": "bunx playwright test --ui",
     "dev:e2e": "API_KEY= PORT=3001 bun run scripts/dev.ts",
-    "package": "tizen package -t wgt -s trmnl -o ./tizen/dist -- tizen",
+    "package": "tizen package -t wgt -o ./tizen/dist -- tizen",
     "install": "tizen install -s $TV_IP:26101 -n ./tizen/dist/TRMNL.wgt",
     "tv": "tizen run -s $TV_IP:26101 -p QIuRt5bqs7.viewer",
     "deploy":  "bun run build && bun run package && bun run install && bun run tv"
